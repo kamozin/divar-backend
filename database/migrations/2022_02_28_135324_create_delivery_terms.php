@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDocuments extends Migration
+class CreateDeliveryTerms extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateDocuments extends Migration
      */
     public function up()
     {
-        Schema::create('documents', function (Blueprint $table) {
+        Schema::create('delivery_terms', function (Blueprint $table) {
             $table->id();
-            $table->string('number_document');
-            $table->string('date_document');
-            $table->string('delivery_terms');
-            $table->integer('contract_id');
+            $table->string('title');
+            $table->string('title_en');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateDocuments extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('documents');
+        Schema::dropIfExists('delivery_terms');
     }
 }

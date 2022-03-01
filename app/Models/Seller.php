@@ -17,7 +17,7 @@ class Seller extends Model
         'swift_code',
         'account_number',
         'email',
-        'contract_id',
+        'gln_code'
     ];
     protected $hidden=[
         'created_at',

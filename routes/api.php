@@ -37,4 +37,9 @@ Route::group([
     Route::resource('sender', 'SenderController');
     Route::resource('package', 'PackageController');
     Route::resource('products', 'ProductsController');
+    Route::resource('delivery-terms', 'DeliveryTermsController');
+
+    Route::get('getContractInfo/{id}', 'DocumentController@getContractInfo');
+
+
 });

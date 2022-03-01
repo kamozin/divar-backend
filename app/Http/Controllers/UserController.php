@@ -26,14 +26,11 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-
         $data = json_decode($request->getContent());
-
         $validator = Validator::make((array)$data, [
             'email' => 'required|email|max:50',
             'password' => 'required|min:6'
         ]);
-
         if ($validator->fails()) {
             return response()->json($validator->errors());
         }
@@ -60,28 +57,4 @@ class UserController extends Controller
         $user->update((array)$data);
         return $this->successResponse();
     }
-
-//    public function createFolder()
-//    {
-//        $collection = (new FastExcel)->sheet(2)->import('file.xlsx');
-//
-////        dd($collection);
-//        $arr = [];
-//        $i = 0;
-//        foreach ($collection as $a) {
-//            if (strripos($a['Контракт'], '.') == strlen($a['Контракт']) - 1) {
-//                Storage::makeDirectory('/divar2/' . trim(str_replace('.', '', $a['Контракт'])));
-//            } else {
-//                Storage::makeDirectory('/divar2/' . trim($a['Контракт']));
-//            }
-//        }
-//
-//        foreach ($collection as $a) {
-//            if (strripos($a['Контракт'], '.') == strlen($a['Контракт']) - 1) {
-//                Storage::makeDirectory('/divar2/' . trim(str_replace('.', '', $a['Контракт'])).'/'.str_replace('/', '_', $a['Ном ГТД']));
-//            } else {
-//                Storage::makeDirectory('/divar2/' . trim($a['Контракт']).'/'.str_replace('/', '_', $a['Ном ГТД']));
-//            }
-//        }
-//    }
 }

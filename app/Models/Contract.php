@@ -12,16 +12,25 @@ class Contract extends Model
         'number_contract',
         'dt_contract',
         'country_of_origin',
-        'terms_of_payment',
-        'delivery_terms',
         'status',
+        'buyer_id',
+        'seller_id',
     ];
 
-    public function product () {
+    public function product()
+    {
         return $this->belongsTo(Products::class);
     }
 
-    protected $hidden=[
+    public function buyer () {
+        return $this->belongsTo(Buyer::class, 'buyer_id', 'id');
+    }
+
+    public function seller () {
+        return $this->belongsTo(Seller::class, 'seller_id', 'id');
+    }
+
+    protected $hidden = [
         'created_at',
         'updated_at'
     ];
